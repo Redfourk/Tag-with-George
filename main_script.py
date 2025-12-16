@@ -1,7 +1,9 @@
 import random
 import time
 import pygame
+import pynput
 from pygame import *
+from pynput import keyboard
 
 # Stuff to figure out later...
 
@@ -41,27 +43,67 @@ pygame.draw.rect(screen, green, (0, 0, 1000, 1000))
 # "pygame.display.flip()" updates screen
 # "pygame.quit()" exits window
 
-def move_square(event):
-    if event.key == "ArrowLeft":
-        player1.move(-10, 0)
-    if event.key == "ArrowRight":
-        player1.move(10,0)
-    if event.key == "ArrowUp":
-        player1.move(0, -10)
-    if event.key == "ArrowDown":
-        player1.move(0,10)
+player1_x = 350
+player1_y =  200
 
 
-# pygame.draw.circle(surface, color, (center x, center y), radius, width)
+# New key handling code:
 
-# player1 = Circle(10)
-# player1.set_position(350, 200)
-# player1.set_color(Color.white)
-# add(player1)
+def move_square(key):
+    try:
+        if key == keyboard.Key.left:
+            global player1_x
+            player1_x = player1_x - 10
+            global player1_y
+            player1_y = player1_y + 0
+        elif key == keyboard.Key.right:
+            global player1_x
+            player1_x = player1_x + 10
+            global player1_y
+            player1_y = player1_y + 0
+        elif key == keyboard.Key.up:
+            global player1_x
+            player1_x = player1_x + 0
+            global player1_y
+            player1_y = player1_y - 10
+        elif key == keyboard.Key.down:
+            global player1_x
+            player1_x = player1_x + 0
+            global player1_y
+            player1_y = player1_y + 10
 
-pygame.draw.circle(screen, WHITE, (350, 200), 10, 1)
+# Old key handling code:
 
-add_key_down_handler(move_square)
+# def move_square(event):
+#     if event.key == "ArrowLeft":
+#         player1.move(-10, 0)
+#     if event.key == "ArrowRight":
+#         player1.move(10,0)
+#     if event.key == "ArrowUp":
+#         player1.move(0, -10)
+#     if event.key == "ArrowDown":
+#         player1.move(0,10)
+
+# Circle Geometry Rubric ~
+#       pygame.draw.circle(surface, color, (center x, center y), radius, width)
+
+# player1 geometry:
+pygame.draw.circle(screen, WHITE, (player1_x, player1_y), 10, 1)
+
+# Old key handling code below:
+
+#       add_key_down_handler(move_square)
+
+# New keyboard handing code:
+
+with keyboard.Listener(on_press=move_square) as listener:
+    listener.join()
+
+
+
+
+
+
 
 def move_copter(event):
     if event.key == "a":
@@ -72,6 +114,9 @@ def move_copter(event):
         player2.move(0, -10)
     if event.key == "s":
         player2.move(0,10)
+
+
+
 
 player2 = Circle(10)
 player2.set_position(50, 200)
