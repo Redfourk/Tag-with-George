@@ -9,10 +9,38 @@ from pygame import *
 # my_music.loop = True
 # my_music.play()
 
-rect = Rectangle(1000, 1000)
-rect.set_position(0, 0)
-rect.set_color(Color.green)
-add(rect)
+
+
+pygame.init()
+
+
+SCREEN_WIDTH = 600
+SCREEN_HEIGHT = 400
+
+
+
+BLACK = (0, 0, 0)
+WHITE = (255, 255, 255)
+RED = (255, 0, 0)
+GREEN = (0, 255, 0)
+
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+pygame.display.set_caption("Tag with George v0.1.0")
+
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+screen.fill(WHITE)
+
+# (surface, color, (x, y, width, height))
+pygame.draw.rect(screen, green, (0, 0, 1000, 1000))
+
+# "pygame.display.flip()" updates screen
+# "pygame.quit()" exits window
+
 def move_square(event):
     if event.key == "ArrowLeft":
         player1.move(-10, 0)
@@ -22,6 +50,9 @@ def move_square(event):
         player1.move(0, -10)
     if event.key == "ArrowDown":
         player1.move(0,10)
+
+
+# pygame.draw.circle(surface, color, (center x, center y), radius, width)
 
 player1 = Circle(10)
 player1.set_position(350, 200)
