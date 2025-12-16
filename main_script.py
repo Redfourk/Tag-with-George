@@ -54,10 +54,12 @@ def move_square(event):
 
 # pygame.draw.circle(surface, color, (center x, center y), radius, width)
 
-player1 = Circle(10)
-player1.set_position(350, 200)
-player1.set_color(Color.white)
-add(player1)
+# player1 = Circle(10)
+# player1.set_position(350, 200)
+# player1.set_color(Color.white)
+# add(player1)
+
+pygame.draw.circle(screen, WHITE, (350, 200), 10, 1)
 
 add_key_down_handler(move_square)
 
