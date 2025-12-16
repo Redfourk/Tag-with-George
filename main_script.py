@@ -1,10 +1,14 @@
 import random
 import time
-import timer
+import pygame
+from pygame import *
 
-my_music = html.AUDIO(src="https://codehs.com/uploads/8179d3793582c02c44438d0160d6f0a5")
-my_music.loop = True
-my_music.play()
+# Stuff to figure out later...
+
+# my_music = html.AUDIO(src="https://codehs.com/uploads/8179d3793582c02c44438d0160d6f0a5")
+# my_music.loop = True
+# my_music.play()
+
 rect = Rectangle(1000, 1000)
 rect.set_position(0, 0)
 rect.set_color(Color.green)
