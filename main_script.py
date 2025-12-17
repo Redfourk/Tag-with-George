@@ -1,15 +1,26 @@
-import random
-import time
-import pygame
 import pynput
-from pygame import *
 from pynput import keyboard
+import pygame
+from pygame import display
+
+import pygame
+from pynput import keyboard
+
+from pynput.keyboard import Listener, Key, KeyCode
+
+print(f"Pygame imported successfully, version: {pygame.version.ver}")
+print("Pynput keyboard module imported successfully")
+
+
+
+
 
 # Stuff to figure out later...
 
 # my_music = html.AUDIO(src="https://codehs.com/uploads/8179d3793582c02c44438d0160d6f0a5")
 # my_music.loop = True
-# my_music.play()
+# my_music
+# .play()
 
 
 
@@ -51,26 +62,23 @@ player1_y =  200
 
 def move_square(key):
     try:
+        global player1_x
+        global player1_y
         if key == keyboard.Key.left:
-            global player1_x
             player1_x = player1_x - 10
-            global player1_y
             player1_y = player1_y + 0
         elif key == keyboard.Key.right:
-            global player1_x
             player1_x = player1_x + 10
-            global player1_y
             player1_y = player1_y + 0
         elif key == keyboard.Key.up:
-            global player1_x
             player1_x = player1_x + 0
-            global player1_y
             player1_y = player1_y - 10
         elif key == keyboard.Key.down:
-            global player1_x
             player1_x = player1_x + 0
-            global player1_y
             player1_y = player1_y + 10
+    except AttributeError:
+         print("You pressed an unbinded key.")
+        
 
 # Old key handling code:
 
