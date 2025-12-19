@@ -1,7 +1,7 @@
 #===================================================================================
 #
-# Tag with George by Redfourk and CatthonCoder
-# Copyright © 2025 Redfourk
+# Tag with George
+# Copyright © 2025 Redfourk and CatthonCoder
 # This code uses the MIT license, for more information, see https://mit-license.org/
 #
 #===================================================================================
@@ -26,9 +26,6 @@
 
 import tkinter as tk
 import threading
-
-
-
 from pyglet import event
 from pyglet.media import player
 
@@ -75,9 +72,9 @@ window.bind('<Right>', move_player1)
 
 # Create WASD player, referenced as "player2"
 
-player2_x0 = 870
+player2_x0 = 240
 player2_y0 = 590
-player2_x1 = 890
+player2_x1 = 260
 player2_y1 = 610
 player2 = tk.Canvas.create_oval(background, player2_x0, player2_y0, player2_x1, player2_y1, outline="white", fill="white", width=15)
 
