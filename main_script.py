@@ -101,10 +101,10 @@ window.bind('<d>', move_player2)
 
 # Barrier
 
-south_barrier = tk.Canvas.create_rectangle(background, 0, 1050, 2000, 1750, outline="#573c21", fill="#573c21", width=10)
+south_barrier = tk.Canvas.create_rectangle(background, 0, 1045, 2000, 1050, outline="#573c21", fill="#573c21", width=10)
 north_barrier = tk.Canvas.create_rectangle(background, 0, 0, 2000, 10, outline="#573c21", fill="#573c21", width=10)
-east_barrier = tk.Canvas.create_rectangle(background, 1895, 0, 1895, 1895, outline="#573c21", fill="#573c21", width=10)
-
+east_barrier = tk.Canvas.create_rectangle(background, 1902.5, 0, 1902.5, 1902.5, outline="#573c21", fill="#573c21", width=10)
+west_barrier = tk.Canvas.create_rectangle(background, 0, 0, 10, 1045, outline="#573c21", fill="#573c21", width=10)
 
 # Old barrier code
 #
