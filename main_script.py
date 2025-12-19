@@ -39,7 +39,7 @@ label = tk.Label(window, text="Tag with George v0.1.0")
 
 # Create app backdrop (technically a rectangle). Shape creation format: shape_name = tk.Canvas(app_name, width=__, height=__, bg= "lowercase")
 
-background = tk.Canvas(window, width=2000, height=1200, bg="green")
+background = tk.Canvas(window, width=2000, height=1200, bg="#8CC63E")
 
 # Create arrow-key player, referenced as "player1"
 
@@ -47,7 +47,7 @@ player1_x0 = 1740
 player1_y0 = 590
 player1_x1 = 1760
 player1_y1 = 610
-player1 = tk.Canvas.create_oval(background, player1_x0, player1_y0, player1_x1, player1_y1, outline="red", fill="red", width=15)
+player1 = tk.Canvas.create_oval(background, player1_x0, player1_y0, player1_x1, player1_y1, outline="#FFFFFF", fill="#FFFFFF", width=15)
 
 # Add movement script with keybinds for player1 (Up Arrow, Down Arrow, Left Arrow, Right Arrow)
 # NOTE: Move left process must refresh screen, otherwise ghosting will occur
@@ -76,7 +76,7 @@ player2_x0 = 240
 player2_y0 = 590
 player2_x1 = 260
 player2_y1 = 610
-player2 = tk.Canvas.create_oval(background, player2_x0, player2_y0, player2_x1, player2_y1, outline="white", fill="white", width=15)
+player2 = tk.Canvas.create_oval(background, player2_x0, player2_y0, player2_x1, player2_y1, outline="#DE5844", fill="#DE5844", width=15)
 
 def move_player2(event):
     if event.keysym == "W" or event.keysym == "w":
@@ -99,7 +99,31 @@ window.bind('<s>', move_player2)
 window.bind('<a>', move_player2)
 window.bind('<d>', move_player2)
 
+# Barrier
 
+south_barrier = tk.Canvas.create_rectangle(background, 0, 1050, 2000, 1750, outline="#573c21", fill="#573c21", width=10)
+north_barrier = tk.Canvas.create_rectangle(background, 0, 0, 2000, 10, outline="#573c21", fill="#573c21", width=10)
+east_barrier = tk.Canvas.create_rectangle(background, 1895, 0, 1895, 1895, outline="#573c21", fill="#573c21", width=10)
+
+
+# Old barrier code
+#
+# rect = Rectangle(500, 10)
+# rect.set_position(0, 470)
+# rect.set_color("#573c21")
+# add(rect)
+# rec = Rectangle(10, 500)
+# rec.set_position(390, 0)
+# rec.set_color("#573c21")
+# add(rec)
+# rectd = Rectangle(10, 500)
+# rectd.set_position(0, 0)
+# rectd.set_color("#573c21")
+# add(rectd)
+# recte = Rectangle(500, 10)
+# recte.set_position(0, 0)
+# recte.set_color("#573c21")
+# add(recte)
 
 
 window.focus_set()
