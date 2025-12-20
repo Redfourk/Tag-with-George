@@ -106,24 +106,6 @@ north_barrier = tk.Canvas.create_rectangle(background, 0, 0, 2000, 10, outline="
 east_barrier = tk.Canvas.create_rectangle(background, 1902.5, 0, 1902.5, 1902.5, outline="#573c21", fill="#573c21", width=10)
 west_barrier = tk.Canvas.create_rectangle(background, 0, 0, 10, 1045, outline="#573c21", fill="#573c21", width=10)
 
-# Old barrier code
-#
-# rect = Rectangle(500, 10)
-# rect.set_position(0, 470)
-# rect.set_color("#573c21")
-# add(rect)
-# rec = Rectangle(10, 500)
-# rec.set_position(390, 0)
-# rec.set_color("#573c21")
-# add(rec)
-# rectd = Rectangle(10, 500)
-# rectd.set_position(0, 0)
-# rectd.set_color("#573c21")
-# add(rectd)
-# recte = Rectangle(500, 10)
-# recte.set_position(0, 0)
-# recte.set_color("#573c21")
-# add(recte)
 
 
 window.focus_set()
