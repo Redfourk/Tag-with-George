@@ -6,9 +6,9 @@
 #================
 #
 # Window Length {int}:
-window_length = 1920
+window_length = 2000
 # window Width {int}:
-window_width = 1200
+window_width = 695
 # Window Title {str}:
 window_title = "Tag with George v0.1.0"
 # Window Label {str}:
