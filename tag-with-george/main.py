@@ -1,7 +1,7 @@
 #===================================================================================
 #
 # Tag with George
-# Copyright © 2025 Redfourk and CatthonCoder
+# Copyright © 2025-2026 Redfourk and CatthonCoder
 # This code uses the MIT license, for more information, see https://mit-license.org/
 #
 #===================================================================================
@@ -22,7 +22,7 @@
 #
 
 import tkinter as tk
-
+import threading
 
 import app_properties
 from app_properties import *
