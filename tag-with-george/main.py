@@ -24,6 +24,8 @@
 import tkinter as tk
 import threading
 import time
+
+from PyInstaller.building.templates import onefiletmplt
 from pyglet import event
 from pyglet.media import player
 from pygments.lexers import q
@@ -32,6 +34,9 @@ import app_properties
 from app_properties import *
 import player1_properties
 from player1_properties import *
+
+
+
 
 
 window = tk.Tk()
