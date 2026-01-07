@@ -25,11 +25,7 @@
 # Import necessary resources
 
 import tkinter as tk
-import threading
-import time
 
-from pyglet import event
-from pyglet.media import player
 from pygments.lexers import q
 
 # Create application window. App Name: "window"

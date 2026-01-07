@@ -22,21 +22,10 @@
 #
 
 import tkinter as tk
-import threading
-import time
 
-from PyInstaller.building.templates import onefiletmplt
-from pyglet import event
-from pyglet.media import player
-from pygments.lexers import q
 
 import app_properties
 from app_properties import *
-import player1_properties
-from player1_properties import *
-
-
-
 
 
 window = tk.Tk()
@@ -50,7 +39,7 @@ background = tk.Canvas(window, width=canvas_width, height=canvas_height, bg=canv
 # Create arrow-key player, referenced as "player1"
 
 from player1_properties import player1_x0, player1_y0, player1_x1, player1_y1, player1_step
-player1 = tk.Canvas.create_oval(background, player1_x0, player1_y0, player1_x1, player1_y1, outline="#FFFFFF", fill="#FFFFFF", width=15)
+player1 = tk.Canvas.create_oval(background, player1_x0, player1_y0, player1_x1, player1_y1, outline="#FFFFFF", fill="#FFFFFF", width=15, tags="shape")
 
 # Add movement script with keybinds for player1 (Up Arrow, Down Arrow, Left Arrow, Right Arrow)
 
@@ -82,7 +71,7 @@ window.bind('<Right>', move_player1)
 # Player 2:
 
 from player2_properties import player2_x0, player2_y0, player2_x1, player2_y1, player2_step
-player2 = tk.Canvas.create_oval(background, player2_x0, player2_y0, player2_x1, player2_y1, outline="#DE5844", fill="#DE5844", width=15)
+player2 = tk.Canvas.create_oval(background, player2_x0, player2_y0, player2_x1, player2_y1, outline="#DE5844", fill="#DE5844", width=15, tags="shape")
 
 def move_player2(event):
     dx, dy = 0, 0
@@ -114,10 +103,10 @@ window.bind('<d>', move_player2)
 
 # Barriers:
 
-south_barrier = tk.Canvas.create_rectangle(background, 0, 1045, 2000, 1055, outline="#573c21", fill="#573c21", width=10)
-north_barrier = tk.Canvas.create_rectangle(background, 0, 0, 1900, 10, outline="#573c21", fill="#573c21", width=10)
-east_barrier = tk.Canvas.create_rectangle(background, 1900, 0, 1905, 1045, outline="#573c21", fill="#573c21", width=10)
-west_barrier = tk.Canvas.create_rectangle(background, 0, 0, 10, 1045, outline="#573c21", fill="#573c21", width=10)
+south_barrier = tk.Canvas.create_rectangle(background, 0, 695, 2000, 700, outline="#573c21", fill="#573c21", width=10, tags="shape")
+north_barrier = tk.Canvas.create_rectangle(background, 0, 0, 1900, 10, outline="#573c21", fill="#573c21", width=10, tags="shape")
+east_barrier = tk.Canvas.create_rectangle(background, 1265, 0, 1905, 1045, outline="#573c21", fill="#573c21", width=10, tags="shape")
+west_barrier = tk.Canvas.create_rectangle(background, 0, 0, 10, 1045, outline="#573c21", fill="#573c21", width=10, tags="shape")
 
 barriers = [south_barrier, north_barrier, east_barrier, west_barrier]
 

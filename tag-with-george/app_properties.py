@@ -6,7 +6,7 @@
 #================
 #
 # Window Length {int}:
-window_length = 2000
+window_length = 1920
 # window Width {int}:
 window_width = 1200
 # Window Title {str}:
