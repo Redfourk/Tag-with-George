@@ -23,7 +23,7 @@
 
 import tkinter as tk
 import threading
-
+import random
 import app_properties
 from app_properties import *
 
@@ -62,6 +62,7 @@ def move_player1(event):
         background.move(player1, -dx, -dy)
 
     background.update_idletasks()
+    game_over_monitor()
 
 window.bind('<Up>', move_player1)
 window.bind('<Down>', move_player1)
@@ -90,6 +91,7 @@ def move_player2(event):
         background.move(player2, -dx, -dy)
 
     background.update_idletasks()
+    game_over_monitor()
 
 window.bind('<W>', move_player2)
 window.bind('<S>', move_player2)
@@ -109,7 +111,15 @@ east_barrier = tk.Canvas.create_rectangle(background, 1265, 0, 1905, 1045, outli
 west_barrier = tk.Canvas.create_rectangle(background, 0, 0, 10, 1045, outline="#573c21", fill="#573c21", width=10, tags="shape")
 
 barriers = [south_barrier, north_barrier, east_barrier, west_barrier]
+players = [player1, player2]
 
+def game_over_monitor():
+    if background.coords(player1) == background.coords(player2):
+        ending_bg = tk.Canvas.create_rectangle(background, 0, 0, 5000, 5000, outline="black", fill="black", )
+        ending_text = tk.Canvas.create_text(background, 600, 300, text="The tagger won!", fill="white", font=("Cursive", 20))
+        ending_face = tk.Canvas.create_text(background, 600, 200, text="☺", fill="white", font=("Arial", 150))
+    else:
+        return
 
 def is_collision(player_id):
     coords = background.coords(player_id)
@@ -118,6 +128,29 @@ def is_collision(player_id):
         if item in barriers:
             return True
     return False
+
+
+# Bushes:
+
+#|************************
+#|Currently in development
+#|************************
+
+"""
+def bush(x, y):
+    r = x - 5
+    R = x - 15
+    F = x - 30
+    t = y - 5
+    bush_circ1 = tk.Canvas.create_oval(background, R - 15, t - 15, R + 15, t + 15, outline="#0e6101", fill="#0e6101", width=15, tags="shape")
+    bush_circ2 = tk.Canvas.create_oval(background, x - 10, y - 10, x + 10, y + 10, outline="#0e6101", fill= "#0e6101", width=10, tags="shape")
+    bush_rect = tk.Canvas.create_rectangle(background, F + 20, y + 20, F + 20, y + 20, outline="#0e6101", fill="#0e6101", width=40, tags="shape")
+
+for i in range (10):
+    random_gen_x = random.randint(50, 350)
+    random_gen_y = random.randint(50, 500)
+    bush(random_gen_x, random_gen_y)
+"""
 
 
 
