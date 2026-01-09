@@ -8,11 +8,6 @@
 #
 #
 #       ~Chore list~
-# Todo: Translate audio mechanics:
-# my_music = html.AUDIO(src="https://codehs.com/uploads/8179d3793582c02c44438d0160d6f0a5")
-# my_music.loop = True
-# my_music
-# .play()
 # Todo: Implement player 2
 # Todo: Find updated features added by CatthonCoder
 # Todo: Clean up and format code
@@ -21,9 +16,14 @@
 #
 #
 
+import html
 import tkinter as tk
 import threading
 import random
+import pygame
+from pygame import mixer
+import dash
+from dash.html import Audio
 import app_properties
 from app_properties import *
 
@@ -152,9 +152,20 @@ for i in range (10):
     bush(random_gen_x, random_gen_y)
 """
 
+# Music:
+
+pygame.mixer.pre_init(44100, -16, 2, 2048)
+pygame.init()
+
+try:
+    pygame.mixer.music.load("tag.mp3")
+    pygame.mixer.music.set_volume(0.25)
+    pygame.mixer.music.play(-1)
+except pygame.error as e:
+    print(f"Could not load music file: {e}")
 
 
 window.focus_set()
 label.pack()
 background.pack()
-window.mainloop()
+(window.mainloop())
