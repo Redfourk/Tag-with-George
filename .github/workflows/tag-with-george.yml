@@ -38,4 +38,4 @@ jobs:
 
       - name: Build package distribution
         run: |
-          python -m PyInstaller --onefile main.py
+          python -m PyInstaller --onefile tag-with-george/main.py
