@@ -37,6 +37,4 @@ jobs:
 
       - name: Build package distribution
         run: |
-          cd
-          cd tag-with-george
           python -m PyInstaller --onefile main.py
