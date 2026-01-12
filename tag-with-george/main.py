@@ -6,9 +6,9 @@
 #
 #===================================================================================
 #
+project_version = "0.1.0-test.3"
 #
 #       ~Chore list~
-# Todo: Implement player 2
 # Todo: Find updated features added by CatthonCoder
 # Todo: Clean up and format code
 # Todo: Implement bushes
@@ -16,6 +16,14 @@
 #
 #
 
+print("""===================================================================================
+Tag with George
+Copyright © 2025-2026 Redfourk and CatthonCoder
+This code uses the MIT license, for more information, see https://mit-license.org/
+===================================================================================
+""")
+print("Current project version: " + project_version)
+print("Fetching dependencies...")
 import html
 import tkinter as tk
 import threading
@@ -26,7 +34,11 @@ import dash
 from dash.html import Audio
 import app_properties
 from app_properties import *
+import os
 
+from PIL import Image, ImageTk
+
+print("Opening project window...")
 
 window = tk.Tk()
 
@@ -38,11 +50,12 @@ background = tk.Canvas(window, width=canvas_width, height=canvas_height, bg=canv
 
 # Create arrow-key player, referenced as "player1"
 
+print("Making player 1...")
+
 from player1_properties import player1_x0, player1_y0, player1_x1, player1_y1, player1_step
 player1 = tk.Canvas.create_oval(background, player1_x0, player1_y0, player1_x1, player1_y1, outline="#FFFFFF", fill="#FFFFFF", width=15, tags="shape")
 
 # Add movement script with keybinds for player1 (Up Arrow, Down Arrow, Left Arrow, Right Arrow)
-
 
 
 
@@ -70,6 +83,8 @@ window.bind('<Left>', move_player1)
 window.bind('<Right>', move_player1)
 
 # Player 2:
+
+print("Making player 2...")
 
 from player2_properties import player2_x0, player2_y0, player2_x1, player2_y1, player2_step
 player2 = tk.Canvas.create_oval(background, player2_x0, player2_y0, player2_x1, player2_y1, outline="#DE5844", fill="#DE5844", width=15, tags="shape")
@@ -105,6 +120,8 @@ window.bind('<d>', move_player2)
 
 # Barriers:
 
+print("Setting barriers...")
+
 south_barrier = tk.Canvas.create_rectangle(background, 0, 695, 2000, 700, outline="#573c21", fill="#573c21", width=10, tags="shape")
 north_barrier = tk.Canvas.create_rectangle(background, 0, 0, 1900, 10, outline="#573c21", fill="#573c21", width=10, tags="shape")
 east_barrier = tk.Canvas.create_rectangle(background, 1265, 0, 1905, 1045, outline="#573c21", fill="#573c21", width=10, tags="shape")
@@ -112,6 +129,8 @@ west_barrier = tk.Canvas.create_rectangle(background, 0, 0, 10, 1045, outline="#
 
 barriers = [south_barrier, north_barrier, east_barrier, west_barrier]
 players = [player1, player2]
+
+print("Defining events...")
 
 def game_over_monitor():
     if background.coords(player1) == background.coords(player2):
@@ -154,6 +173,8 @@ for i in range (10):
 
 # Music:
 
+print("Playing music...")
+
 pygame.mixer.pre_init(44100, -16, 2, 2048)
 pygame.init()
 
@@ -165,7 +186,9 @@ except pygame.error as e:
     print(f"Could not load music file: {e}")
 
 
+print("Finalizing...")
+
 window.focus_set()
 label.pack()
 background.pack()
-(window.mainloop())
+window.mainloop()
