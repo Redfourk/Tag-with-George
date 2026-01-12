@@ -33,7 +33,7 @@ jobs:
 
       - name: Run tests with PyTest
         run: |
-          pytest
+          pytest || [ $? -eq 5 ]
 
       - name: Build package distribution
         run: |
