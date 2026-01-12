@@ -19,3 +19,5 @@ canvas_height = 1200
 canvas_width = 2000
 # Canvas color (can be names like "green", or hexadecimal color values) {str}:
 canvas_color = "#8CC63E"
+
+
