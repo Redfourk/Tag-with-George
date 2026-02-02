@@ -6,7 +6,7 @@
 #
 #===================================================================================
 #
-project_version = "0.1.0-test.3"
+project_version = "0.1.0-beta.1"
 #
 #       ~Chore list~
 # Todo: Find updated features added by CatthonCoder
