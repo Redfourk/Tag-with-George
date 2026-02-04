@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Tag" type="docker-deploy" factoryName="dockerfile" editBeforeRun="true" focusToolWindowBeforeRun="true" singleton="false" server-name="Docker2">
+    <deployment type="dockerfile">
+      <settings>
+        <option name="containerName" value="" />
+        <option name="sourceFilePath" value=".github/workflows/tag-with-george.yml" />
+      </settings>
+    </deployment>
+    <method v="2" />
+  </configuration>
+</component>
