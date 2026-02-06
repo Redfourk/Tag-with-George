@@ -23,6 +23,7 @@ This code uses the MIT license, for more information, see https://mit-license.or
 ===================================================================================
 """)
 print("Current project version: " + project_version)
+
 print("Fetching dependencies...")
 import html
 import tkinter as tk
@@ -30,15 +31,14 @@ import threading
 import random
 import pygame
 from pygame import mixer
-import dash
-from dash.html import Audio
 import app_properties
 from app_properties import *
 import os
-
+import warnings
 from PIL import Image, ImageTk
 
 print("Opening project window...")
+
 
 window = tk.Tk()
 
@@ -46,7 +46,7 @@ window.title(window_title)
 window.geometry(str(window_length) + "x" + str(window_width))
 label = tk.Label(window, text=str(window_label))
 background = tk.Canvas(window, width=canvas_width, height=canvas_height, bg=canvas_color)
-
+window.resizable(False, False)
 
 # Create arrow-key player, referenced as "player1"
 
@@ -122,7 +122,7 @@ window.bind('<d>', move_player2)
 
 print("Setting barriers...")
 
-south_barrier = tk.Canvas.create_rectangle(background, 0, 695, 2000, 700, outline="#573c21", fill="#573c21", width=10, tags="shape")
+south_barrier = tk.Canvas.create_rectangle(background, 0, 615, 2000, 630, outline="#573c21", fill="#573c21", width=10, tags="shape")
 north_barrier = tk.Canvas.create_rectangle(background, 0, 0, 1900, 10, outline="#573c21", fill="#573c21", width=10, tags="shape")
 east_barrier = tk.Canvas.create_rectangle(background, 1265, 0, 1905, 1045, outline="#573c21", fill="#573c21", width=10, tags="shape")
 west_barrier = tk.Canvas.create_rectangle(background, 0, 0, 10, 1045, outline="#573c21", fill="#573c21", width=10, tags="shape")
