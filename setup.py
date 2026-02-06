@@ -3,7 +3,7 @@ from cx_Freeze import setup, Executable
 
 # Options for the build process
 build_exe_options = {
-    "packages": ["os", "tkinter", "html", "threading", "random", "pygame"],           # List any specific libraries your app uses
+    "packages": ["os", "tkinter", "html", "threading", "random", "pygame", "warnings"],           # List any specific libraries your app uses
     "excludes": [],     # Exclude modules you don't need to reduce size
     "include_files": [
         'src/app_properties.py',

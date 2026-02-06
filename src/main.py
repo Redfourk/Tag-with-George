@@ -24,6 +24,12 @@ This code uses the MIT license, for more information, see https://mit-license.or
 """)
 print("Current project version: " + project_version)
 
+import warnings
+warnings.filterwarnings("ignore", category=UserWarning)
+
+import os
+os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
+
 print("Fetching dependencies...")
 import html
 import tkinter as tk
@@ -33,12 +39,9 @@ import pygame
 from pygame import mixer
 import app_properties
 from app_properties import *
-import os
-import warnings
 from PIL import Image, ImageTk
 
 print("Opening project window...")
-
 
 window = tk.Tk()
 
@@ -179,14 +182,14 @@ pygame.mixer.pre_init(44100, -16, 2, 2048)
 pygame.init()
 
 try:
-    pygame.mixer.music.load("tag.mp3")
+    pygame.mixer.music.load("../build/exe.win-amd64-3.13/tag.mp3")
     pygame.mixer.music.set_volume(0.25)
     pygame.mixer.music.play(-1)
 except pygame.error as e:
     print(f"Could not load music file: {e}")
 
 
-print("Finalizing...")
+print("Exiting...")
 
 window.focus_set()
 label.pack()
